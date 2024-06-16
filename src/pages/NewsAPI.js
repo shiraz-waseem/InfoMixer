@@ -151,7 +151,7 @@ const NewsAPI = () => {
                     display: " flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    marginTop: "150px",
+                    margin: "148px auto",
                     color: "white",
                     fontSize: "2rem",
                   }}
