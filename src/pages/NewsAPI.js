@@ -146,7 +146,18 @@ const NewsAPI = () => {
                   </div>
                 ))
               ) : (
-                <>NEWS API doesn't support the browser!</>
+                <div
+                  style={{
+                    display: " flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    marginTop: "150px",
+                    color: "white",
+                    fontSize: "2rem",
+                  }}
+                >
+                  NEWS API doesn't support the browser!
+                </div>
               )}
             </div>
           </main>
