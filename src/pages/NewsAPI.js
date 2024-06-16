@@ -56,6 +56,14 @@ const NewsAPI = () => {
     window.open(url, "_blank");
   };
 
+  const toggleNav = () => {
+    const navLinks = document.querySelector(".nav-links ul");
+    navLinks.classList.toggle("show");
+
+    const searchLinks = document.querySelector(".search-bar");
+    searchLinks.classList.toggle("show");
+  };
+
   return (
     <>
       <WeatherBody style={{ background: "#0a0a0a" }}>
@@ -109,47 +117,40 @@ const NewsAPI = () => {
           </nav>
           <main className="main">
             <div className="cards-container containernews flex">
-              {articles.map((article, index) => (
-                <div
-                  className="card"
-                  key={index}
-                  onClick={() => handleCardClick(article.url)}
-                >
-                  <div className="card-header">
-                    <img
-                      src={
-                        article.urlToImage ||
-                        "https://via.placeholder.com/400x200"
-                      }
-                      alt="news-image"
-                    />
+              {articles &&
+                articles.map((article, index) => (
+                  <div
+                    className="card"
+                    key={index}
+                    onClick={() => handleCardClick(article.url)}
+                  >
+                    <div className="card-header">
+                      <img
+                        src={
+                          article.urlToImage ||
+                          "https://via.placeholder.com/400x200"
+                        }
+                        alt="news-image"
+                      />
+                    </div>
+                    <div className="card-content">
+                      <h3>{article.title}</h3>
+                      <h6 className="news-source">
+                        {article.source.name} ·{" "}
+                        {new Date(article.publishedAt).toLocaleString("en-US", {
+                          timeZone: "Asia/Jakarta",
+                        })}
+                      </h6>
+                      <p className="news-desc">{article.description}</p>
+                    </div>
                   </div>
-                  <div className="card-content">
-                    <h3>{article.title}</h3>
-                    <h6 className="news-source">
-                      {article.source.name} ·{" "}
-                      {new Date(article.publishedAt).toLocaleString("en-US", {
-                        timeZone: "Asia/Jakarta",
-                      })}
-                    </h6>
-                    <p className="news-desc">{article.description}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
             </div>
           </main>
         </Layout>
       </WeatherBody>
     </>
   );
-};
-
-const toggleNav = () => {
-  const navLinks = document.querySelector(".nav-links ul");
-  navLinks.classList.toggle("show");
-
-  const searchLinks = document.querySelector(".search-bar");
-  searchLinks.classList.toggle("show");
 };
 
 export default NewsAPI;

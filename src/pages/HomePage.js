@@ -97,7 +97,8 @@ const HomePage = () => {
         style={{
           display: "flex",
           marginTop: "2rem",
-          justifyContent: "space-evenly",
+          justifyContent: "center",
+          gap: "8rem",
         }}
       >
         <div class="cardHome" onClick={() => navigate("/newsupdate")}>
@@ -136,7 +137,8 @@ const HomePage = () => {
         style={{
           display: "flex",
           marginTop: "2rem",
-          justifyContent: "space-evenly",
+          justifyContent: "center",
+          gap: "8rem",
         }}
       >
         <div class="cardHome" onClick={() => navigate("/randomquotes")}>
