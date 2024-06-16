@@ -117,7 +117,7 @@ const NewsAPI = () => {
           </nav>
           <main className="main">
             <div className="cards-container containernews flex">
-              {articles &&
+              {articles ? (
                 articles.map((article, index) => (
                   <div
                     className="card"
@@ -144,7 +144,10 @@ const NewsAPI = () => {
                       <p className="news-desc">{article.description}</p>
                     </div>
                   </div>
-                ))}
+                ))
+              ) : (
+                <>NEWS API doesn't support the browser!</>
+              )}
             </div>
           </main>
         </Layout>
